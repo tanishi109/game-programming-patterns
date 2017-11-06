@@ -15,6 +15,7 @@ WCHAR szWindowClass[MAX_LOADSTRING];            // メイン ウィンドウ クラス名
 ATOM                MyRegisterClass(HINSTANCE hInstance);
 BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
+void                DrawSelector(HWND, PAINTSTRUCT);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
@@ -146,7 +147,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         {
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
-            // TODO: HDC を使用する描画コードをここに追加してください...
+
+            // 選択肢を描画
+            DrawSelector(hWnd, ps);
+
             EndPaint(hWnd, &ps);
         }
         break;
@@ -157,6 +161,37 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         return DefWindowProc(hWnd, message, wParam, lParam);
     }
     return 0;
+}
+
+void DrawSelector(HWND hWnd, PAINTSTRUCT ps)
+{
+    // Obtain the size of the drawing area.
+    RECT rc;
+    GetClientRect(
+		hWnd,
+		&rc
+	);
+	// Save the original object
+	HGDIOBJ original = NULL;
+	original = SelectObject(
+		ps.hdc,
+		GetStockObject(DC_PEN)
+	);
+	// Create a pen.            
+	HPEN blackPen = CreatePen(PS_SOLID, 3, 0x333333);
+
+	SelectObject(ps.hdc, blackPen);
+	// Draw a rectangle.
+	Rectangle(
+		ps.hdc,
+		50,
+		50,
+		50 + 32,
+		50 + 32
+	);
+
+	DeleteObject(blackPen);
+	SelectObject(ps.hdc, original);
 }
 
 // バージョン情報ボックスのメッセージ ハンドラーです。
