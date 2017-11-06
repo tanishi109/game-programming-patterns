@@ -138,6 +138,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
+    case WM_LBUTTONDOWN:
+        {
+            OutputDebugString(_T("left clicked!!"));
+
+            int xPos = GET_X_LPARAM(lParam);
+            int yPos = GET_Y_LPARAM(lParam);
+
+            printf_ex(_T("Pos = %d, %d"), xPos, yPos);
+        }
+        break;
     case WM_COMMAND:
         {
             int wmId = LOWORD(wParam);
