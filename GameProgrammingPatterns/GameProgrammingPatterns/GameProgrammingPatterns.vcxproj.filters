@@ -30,12 +30,18 @@
     <ClInclude Include="GameProgrammingPatterns.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="printfex.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="GameProgrammingPatterns.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="printfex.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
