@@ -113,6 +113,11 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    return TRUE;
 }
 
+static const int SELECTOR_POS[1][2] = {
+    {60, 50}
+};
+static const int SELECTOR_SIZE = 32;
+
 //
 //  ä÷êî: WndProc(HWND, UINT, WPARAM, LPARAM)
 //
@@ -131,10 +136,20 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         {
             OutputDebugString(_T("left clicked!!"));
 
-            int xPos = GET_X_LPARAM(lParam);
-            int yPos = GET_Y_LPARAM(lParam);
+            const int mouse_x = GET_X_LPARAM(lParam);
+            const int mouse_y = GET_Y_LPARAM(lParam);
 
-            printf_ex(_T("Pos = %d, %d"), xPos, yPos);
+            for (const int* s : SELECTOR_POS) {
+                const int sel_x = *s;
+                const int sel_y = *(s+1);
+
+                if (
+                    (sel_x < mouse_x && mouse_x < sel_x + SELECTOR_SIZE) &&
+                    (sel_y < mouse_y && mouse_y < sel_y + SELECTOR_SIZE)
+                   ) {
+                   printf_ex(_T("*** CLICKED!"));
+                }
+            }
         }
         break;
     case WM_COMMAND:
@@ -193,13 +208,17 @@ void DrawSelector(HWND hWnd, PAINTSTRUCT ps)
 
 	SelectObject(ps.hdc, blackPen);
 	// Draw a rectangle.
-	Rectangle(
-		ps.hdc,
-		50,
-		50,
-		50 + 32,
-		50 + 32
-	);
+    for (const int* s: SELECTOR_POS) {
+        int x = *s;
+        int y = *(s+1);
+        Rectangle(
+            ps.hdc,
+            x,
+            y,
+            x + SELECTOR_SIZE,
+            y + SELECTOR_SIZE
+        );
+    }
 
 	DeleteObject(blackPen);
 	SelectObject(ps.hdc, original);
