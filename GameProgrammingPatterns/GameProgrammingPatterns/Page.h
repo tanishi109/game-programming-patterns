@@ -1,17 +1,14 @@
 #pragma once
 
-#include "PageState.h"
+#include "stdafx.h"
+#include <Windowsx.h>
+
+class PageState;
 
 class Page
 {
 public:
-    Page() {
-        state_ = &PageState::select;
-    }
-    virtual void handleInput(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
-    {
-        state_->handleInput(hWnd, message, wParam, lParam);
-    }
-private:
+    Page();
+    virtual void handleInput(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
     PageState* state_;
 };
