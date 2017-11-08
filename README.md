@@ -1,8 +1,8 @@
-# game-programming-patterns
+# :book: game-programming-patterns
 
 kiwi book practice project.
 
-# Patterns
+# :scroll: Patterns
 
 ## State
 
@@ -15,7 +15,7 @@ kiwi book practice project.
 
 ### (stay tuned)
 
-# Other Folders and Files
+# :file_folder: Other Folders and Files
 
 ## GameProgrammingPatterns
 
