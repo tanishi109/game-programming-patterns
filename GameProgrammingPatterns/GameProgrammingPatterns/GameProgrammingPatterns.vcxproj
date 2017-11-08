@@ -139,6 +139,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameProgrammingPatterns.h" />
+    <ClInclude Include="Page.h" />
+    <ClInclude Include="PageState.h" />
     <ClInclude Include="printfex.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
@@ -146,7 +148,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameProgrammingPatterns.cpp" />
+    <ClCompile Include="PageState.cpp" />
     <ClCompile Include="printfex.cpp" />
+    <ClCompile Include="Page.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

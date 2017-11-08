@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ソース ファイル\Page">
+      <UniqueIdentifier>{d9aff463-e9df-460e-9e7a-241d4722761d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Page">
+      <UniqueIdentifier>{16b605d9-30d1-482b-9732-37170208afb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Page\PageState">
+      <UniqueIdentifier>{d5455922-18d7-40d8-96e9-1606d0144565}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Page\PageState">
+      <UniqueIdentifier>{4c74f5bf-9b18-4051-9a92-c2225987a104}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -33,6 +45,12 @@
     <ClInclude Include="printfex.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Page.h">
+      <Filter>ヘッダー ファイル\Page</Filter>
+    </ClInclude>
+    <ClInclude Include="PageState.h">
+      <Filter>ヘッダー ファイル\Page\PageState</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -43,6 +61,12 @@
     </ClCompile>
     <ClCompile Include="printfex.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Page.cpp">
+      <Filter>ソース ファイル\Page</Filter>
+    </ClCompile>
+    <ClCompile Include="PageState.cpp">
+      <Filter>ソース ファイル\Page\PageState</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
