@@ -1,6 +1,7 @@
 #include "stdafx.h"
 
 #include "PageState.h"
+#include "Page.h"
 
 SelectState PageState::select = *new SelectState();
 FlyWeightState PageState::flyWeight = *new FlyWeightState();

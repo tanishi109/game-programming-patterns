@@ -3,8 +3,8 @@
 #include "stdafx.h"
 #include <Windowsx.h>
 #include "printfex.h"
-#include "Page.h"
 
+class Page;
 class SelectState;
 class FlyWeightState;
 
