@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "SelectState.h"
 #include "Page.h"
+#include "FlyWeightState.h"
 
 void SelectState::handleInput(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam, Page* page)
 {
