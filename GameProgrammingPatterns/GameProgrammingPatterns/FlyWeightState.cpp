@@ -9,7 +9,7 @@ void FlyWeightState::handleInput(HWND hWnd, UINT message, WPARAM wParam, LPARAM 
     {
     case WM_LBUTTONDOWN:
         {
-            printf_ex(_T("*** FlyWeight!!\n"));
+            RedrawWindow(hWnd, NULL, NULL, RDW_INVALIDATE | RDW_INTERNALPAINT);
             page->state_ = &PageState::select;
         }
         break;
@@ -18,8 +18,8 @@ void FlyWeightState::handleInput(HWND hWnd, UINT message, WPARAM wParam, LPARAM 
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
 
-            // ‘I‘ðŽˆ‚ð•`‰æ
-            //drawSelector(hWnd, ps);
+            FillRect(hdc, &ps.rcPaint, (HBRUSH)(COLOR_WINDOW + 1));
+            drawField(hWnd, ps);
 
             EndPaint(hWnd, &ps);
         }

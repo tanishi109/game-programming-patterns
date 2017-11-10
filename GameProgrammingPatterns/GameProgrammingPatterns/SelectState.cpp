@@ -20,7 +20,7 @@ void SelectState::handleInput(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
                     (sel_x < mouse_x && mouse_x < sel_x + SELECTOR_SIZE) &&
                     (sel_y < mouse_y && mouse_y < sel_y + SELECTOR_SIZE)
                    ) {
-                    printf_ex(_T("*** Select!!\n"));
+                    RedrawWindow(hWnd, NULL, NULL, RDW_INVALIDATE | RDW_INTERNALPAINT);
                     page->state_ = &PageState::flyWeight;
                 }
             }
@@ -30,6 +30,8 @@ void SelectState::handleInput(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
         {
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
+
+            FillRect(hdc, &ps.rcPaint, (HBRUSH)(COLOR_WINDOW + 1));
 
             // ‘I‘ðŽˆ‚ð•`‰æ
             drawSelector(hWnd, ps);
