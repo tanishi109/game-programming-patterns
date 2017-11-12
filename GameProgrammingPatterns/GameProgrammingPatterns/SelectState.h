@@ -8,10 +8,11 @@ public:
     SelectState() {}
     virtual void handleInput(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam, Page* page);
 private:
-    const int SELECTOR_POS[1][2] = {
-        {60, 50}
+    const int POS[2][2] = {
+        {60, 50},
+        {100, 50}
     };
-    const int SELECTOR_SIZE = 32;
+    const int SIZE = 30;
     void drawSelector(HWND hWnd, PAINTSTRUCT ps)
     {
         // Obtain the size of the drawing area.
@@ -31,15 +32,15 @@ private:
 
         SelectObject(ps.hdc, blackPen);
         // Draw a rectangle.
-        for (const int* s: SELECTOR_POS) {
+        for (const int* s: POS) {
             int x = *s;
             int y = *(s+1);
             Rectangle(
                 ps.hdc,
                 x,
                 y,
-                x + SELECTOR_SIZE,
-                y + SELECTOR_SIZE
+                x + SIZE,
+                y + SIZE
             );
         }
 

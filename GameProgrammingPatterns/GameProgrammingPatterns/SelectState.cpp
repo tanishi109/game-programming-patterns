@@ -12,16 +12,21 @@ void SelectState::handleInput(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
             const int mouse_x = GET_X_LPARAM(lParam);
             const int mouse_y = GET_Y_LPARAM(lParam);
 
-            for (const int* s : SELECTOR_POS) {
-                const int sel_x = *s;
-                const int sel_y = *(s+1);
+            for (int index = 0; index < (sizeof(POS) / sizeof(*POS)); index++) {
+                const int* pos = POS[index];
+                const int sel_x = *(pos);
+                const int sel_y = *(pos+1);
 
                 if (
-                    (sel_x < mouse_x && mouse_x < sel_x + SELECTOR_SIZE) &&
-                    (sel_y < mouse_y && mouse_y < sel_y + SELECTOR_SIZE)
+                    (sel_x < mouse_x && mouse_x < sel_x + SIZE) &&
+                    (sel_y < mouse_y && mouse_y < sel_y + SIZE)
                    ) {
                     RedrawWindow(hWnd, NULL, NULL, RDW_INVALIDATE | RDW_INTERNALPAINT);
-                    page->state_ = &PageState::flyWeight;
+                    if (index == 0) {
+                        page->state_ = &PageState::flyWeight;
+                    } else if (index == 1) {
+                        //page->state_ = &PageState::otherstate;
+                    }
                 }
             }
         }
