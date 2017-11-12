@@ -6,6 +6,8 @@ kiwi book practice project.
 
 ## State
 
+オブジェクトの内部の状態が変化したときにオブジェクトの振る舞いが変わるようにする。
+
 ### files
 
 - Page
@@ -13,7 +15,11 @@ kiwi book practice project.
   
 ## FlyWeight
 
-### (stay tuned)
+共有を利用することで、多数の細かいオブジェクトを効率よく処理する。
+
+### files
+
+- FlyWeightState
 
 # :file_folder: Other Folders and Files
 
