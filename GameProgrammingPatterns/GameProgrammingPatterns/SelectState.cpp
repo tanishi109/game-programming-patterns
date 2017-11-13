@@ -2,6 +2,7 @@
 #include "SelectState.h"
 #include "Page.h"
 #include "FlyWeightState.h"
+#include "ComponentState.h"
 
 void SelectState::handleInput(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam, Page* page)
 {
@@ -25,7 +26,7 @@ void SelectState::handleInput(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
                     if (index == 0) {
                         page->state_ = &PageState::flyWeight;
                     } else if (index == 1) {
-                        //page->state_ = &PageState::otherstate;
+                        page->state_ = &PageState::component;
                     }
                 }
             }

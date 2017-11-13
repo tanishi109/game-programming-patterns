@@ -7,6 +7,7 @@
 class Page;
 class SelectState;
 class FlyWeightState;
+class ComponentState;
 
 class PageState
 {
@@ -15,4 +16,5 @@ public:
     virtual void handleInput(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam, Page* page) {}
     static SelectState select;
     static FlyWeightState flyWeight;
+    static ComponentState component;
 };

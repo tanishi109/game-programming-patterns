@@ -57,6 +57,9 @@
     <ClInclude Include="FlyWeightState.h">
       <Filter>ヘッダー ファイル\Page\PageState</Filter>
     </ClInclude>
+    <ClInclude Include="ComponentState.h">
+      <Filter>ヘッダー ファイル\Page\PageState</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -78,6 +81,9 @@
       <Filter>ソース ファイル\Page\PageState</Filter>
     </ClCompile>
     <ClCompile Include="FlyWeightState.cpp">
+      <Filter>ソース ファイル\Page\PageState</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentState.cpp">
       <Filter>ソース ファイル\Page\PageState</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Page.h"
 
-#include "PageState.h";
+#include "PageState.h"
 #include "SelectState.h"
 
 Page::Page() {

@@ -138,6 +138,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ComponentState.h" />
     <ClInclude Include="FlyWeightState.h" />
     <ClInclude Include="GameProgrammingPatterns.h" />
     <ClInclude Include="Page.h" />
@@ -149,6 +150,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ComponentState.cpp" />
     <ClCompile Include="FlyWeightState.cpp" />
     <ClCompile Include="GameProgrammingPatterns.cpp" />
     <ClCompile Include="PageState.cpp" />
