@@ -21,6 +21,14 @@ kiwi book practice project.
 
 - FlyWeightState
 
+## Component
+
+1つのゲーム要素の処理が複数のドメインにまたがるものであっても、各ドメインが結合しないようにする。
+
+### files
+
+- ComponentState
+
 # :file_folder: Other Folders and Files
 
 ## GameProgrammingPatterns
