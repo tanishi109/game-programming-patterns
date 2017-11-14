@@ -43,6 +43,7 @@ public:
     virtual ~InputComponent() {}
     virtual void update(Player& player) = 0;
 };
+
 class PlayerInputComponent : public InputComponent
 {
 public:
@@ -65,6 +66,23 @@ private:
     static const int WALK_ACCELERATION = 1;
 };
 
+class DemoInputComponent : public InputComponent
+{
+public:
+    void update(Player& player) {
+        printf_ex(_T("velocity => %d"), player.velocity);
+        if (goingRight) {
+            player.velocity += WALK_ACCELERATION;
+            if (player.velocity > 9) goingRight = false;
+        } else {
+            player.velocity -= WALK_ACCELERATION;
+            if (player.velocity < -9) goingRight = true;
+        }
+    }
+private:
+    static const int WALK_ACCELERATION = 1;
+    bool goingRight = true;
+};
 class PhysicsComponent
 {
 public:
@@ -120,8 +138,8 @@ private:
     static const int WALK_ACCELERATION = 1;
 };
 
-
-Player* player = new Player(new PlayerInputComponent());
+Player* player = new Player(new DemoInputComponent());
+//Player* player = new Player(new PlayerInputComponent());
 
 void Player::update(HWND hWnd) {
     input_->update(*this);
