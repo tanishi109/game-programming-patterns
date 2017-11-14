@@ -24,14 +24,13 @@ class GraphicsComponent;
 class Player
 {
 public:
-    Player()
-      : velocity(0),
-        x(30),
-        y(30)
-      {}
+    int velocity=0;
+    int x=30, y=30;
+
+    Player(InputComponent* input)
+    :  input_(input)
+    {}
     void update(HWND hWnd);
-    int velocity;
-    int x, y;
 private:
     InputComponent* input_;
     PhysicsComponent* physics_;
@@ -39,6 +38,12 @@ private:
 };
 
 class InputComponent
+{
+public:
+    virtual ~InputComponent() {}
+    virtual void update(Player& player) = 0;
+};
+class PlayerInputComponent : public InputComponent
 {
 public:
     void update(Player& player) {
@@ -115,13 +120,14 @@ private:
     static const int WALK_ACCELERATION = 1;
 };
 
+
+Player* player = new Player(new PlayerInputComponent());
+
 void Player::update(HWND hWnd) {
     input_->update(*this);
     physics_->update(*this);
     graphics_->update(*this, hWnd);
 };
-
-Player* player = new Player();
 
 void ComponentState::handleInput(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam, Page* page)
 {
