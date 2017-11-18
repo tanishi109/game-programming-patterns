@@ -4,6 +4,11 @@ kiwi book practice project.
 
 # :scroll: Patterns
 
+## Observer
+
+こっちのrepositoryでやった。  
+https://github.com/tanishi109/linked-list
+
 ## State
 
 オブジェクトの内部の状態が変化したときにオブジェクトの振る舞いが変わるようにする。
